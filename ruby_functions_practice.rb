@@ -55,17 +55,26 @@ def number_to_full_month_name(month_number)
   end
 end
 
+# MY FIRST ATTEMPT, ABUSING COPY AND PASTE
+
+# def number_to_short_month_name(month_number)
+#   case month_number
+#   when 1
+#     return "Jan"
+#   when 3
+#     return "Mar"
+#   when 9
+#     return "Sep"
+#   else
+#     return "I was told I didn't need to bother with these."
+#   end
+# end
+
+# CAN ALSO BE DONE THE BELOW WAY, WHICH IS DRYer!
+
 def number_to_short_month_name(month_number)
-  case month_number
-  when 1
-    return "Jan"
-  when 3
-    return "Mar"
-  when 9
-    return "Sep"
-  else
-    return "I was told I didn't need to bother with these."
-  end
+  full_name = number_to_full_month_name(month_number)
+  return full_name[0..2]
 end
 
 
@@ -73,15 +82,24 @@ def volume_of_cube(side_length)
   return side_length ** 3
 end
 
+# # MY FIRST VERSION, APPROXIMATING PI
+# def volume_of_sphere(radius)
+#   answer = (3.14159 * (radius ** 3)) * (4.0/3)
+#   return answer.to_i()
+#
+# end
 
 def volume_of_sphere(radius)
-  answer = (3.14159 * (radius ** 3)) * (4.0/3)
-  return answer.to_i()
-
+  volume = (4.0 / 3.0) * Math::PI * (radius ** 3)
+return volume.round(2)
 end
 
-
+# #FIRST ATTEMPT
+# def farenheit_to_celsius(temp_f)
+#   return ((temp_f - 32.0) * 5.0)/9.0
+# end
 
 def farenheit_to_celsius(temp_f)
-  return ((temp_f - 32.0) * 5.0)/9.0
+  celcius = ((temp_f - 32.0) * 5.0)/9.0
+  return celcius.round(2)
 end
